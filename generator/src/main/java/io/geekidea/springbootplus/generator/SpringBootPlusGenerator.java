@@ -66,7 +66,7 @@ public class SpringBootPlusGenerator {
 
         // 生成配置
         generatorProperties.getGeneratorConfig()
-                .setGeneratorStrategy(GeneratorStrategy.SINGLE)
+                .setGeneratorStrategy(GeneratorStrategy.ALL)
                 .setGeneratorEntity(true)
                 .setGeneratorController(true)
                 .setGeneratorService(true)

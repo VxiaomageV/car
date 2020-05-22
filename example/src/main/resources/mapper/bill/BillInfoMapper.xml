@@ -2,11 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.bill.mapper.BillInfoMapper">
 
-    <!-- 获取总净重 -->
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, bill_code, cargo_name, cargo_size, produce_company, provide_company, receive_company, rough_weight, tare_weight, net_weight, number, proportion, create_user, update_user, create_time, update_time
+    </sql>
+
+    <select id="getBillInfoById" resultType="com.example.bill.vo.BillInfoQueryVo">
+        select
+        <include refid="Base_Column_List"/>
+        from bill_info where id = #{id}
+    </select>
+
+    <select id="getBillInfoPageList" parameterType="com.example.bill.param.BillInfoPageParam" resultType="com.example.bill.vo.BillInfoQueryVo">
+        select
+        <include refid="Base_Column_List"/>
+        from bill_info
+    </select>
+    
     <select id="getConNet" resultType="Integer">
         SELECT sum(net_weight) FROM bill_info
     </select>
-
-
 
 </mapper>

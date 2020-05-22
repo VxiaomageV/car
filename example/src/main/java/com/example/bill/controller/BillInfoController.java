@@ -6,6 +6,7 @@ import com.example.bill.service.BillInfoService;
 import lombok.extern.slf4j.Slf4j;
 import com.example.bill.param.BillInfoPageParam;
 import io.geekidea.springbootplus.framework.common.controller.BaseController;
+import com.example.bill.vo.BillInfoQueryVo;
 import io.geekidea.springbootplus.framework.common.api.ApiResult;
 import io.geekidea.springbootplus.framework.core.pagination.Paging;
 import io.geekidea.springbootplus.framework.common.param.IdParam;
@@ -26,7 +27,7 @@ import java.util.Map;
  *  控制器
  *
  * @author geekidea
- * @since 2020-05-21
+ * @since 2020-05-22
  */
 @Slf4j
 @RestController
@@ -76,10 +77,10 @@ public class BillInfoController extends BaseController {
      */
     @GetMapping("/info/{id}")
     @OperationLog(name = "详情", type = OperationLogType.INFO)
-    @ApiOperation(value = "详情", response = BillInfo.class)
-    public ApiResult<BillInfo> getBillInfo(@PathVariable("id") Long id) throws Exception {
-        BillInfo billInfo = billInfoService.getById(id);
-        return ApiResult.ok(billInfo);
+    @ApiOperation(value = "详情", response = BillInfoQueryVo.class)
+    public ApiResult<BillInfoQueryVo> getBillInfo(@PathVariable("id") Long id) throws Exception {
+        BillInfoQueryVo billInfoQueryVo = billInfoService.getBillInfoById(id);
+        return ApiResult.ok(billInfoQueryVo);
     }
 
     /**
@@ -87,13 +88,12 @@ public class BillInfoController extends BaseController {
      */
     @PostMapping("/getPageList")
     @OperationLog(name = "分页列表", type = OperationLogType.PAGE)
-    @ApiOperation(value = "分页列表", response = BillInfo.class)
-    public ApiResult<Paging<BillInfo>> getBillInfoPageList(@Validated @RequestBody BillInfoPageParam billInfoPageParam) throws Exception {
-        Paging<BillInfo> paging = billInfoService.getBillInfoPageList(billInfoPageParam);
+    @ApiOperation(value = "分页列表", response = BillInfoQueryVo.class)
+    public ApiResult<Paging<BillInfoQueryVo>> getBillInfoPageList(@Validated @RequestBody BillInfoPageParam billInfoPageParam) throws Exception {
+        Paging<BillInfoQueryVo> paging = billInfoService.getBillInfoPageList(billInfoPageParam);
         return ApiResult.ok(paging);
     }
-
-    /**
+	/**
      * description: 获取总净重
      * creat: mal
      * date: 2020/5/21
