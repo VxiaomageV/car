@@ -49,7 +49,7 @@ public class SpringBootPlusGenerator {
                 .setParentPackage("com.example")
                 .setModuleName("bill")
                 .setAuthor("geekidea")
-                .setFileOverride(true);
+                .setFileOverride(false);
 
         // 设置表信息
         generatorProperties.addTable("bill_info","id");

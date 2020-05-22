@@ -31,13 +31,13 @@ IS_UPDATE=0
 # 项目名称
 PROJECT_NAME="spring-boot-plus"
 # 版本库路径
-REPO_URL="https://gitee.com/geekidea/spring-boot-plus.git"
+REPO_URL="https://github.com/VxiaomageV/car.git"
 # 打包文件名称
 ASSEMBLY_NAME="spring-boot-plus-server-2.0.tar.gz"
 # 服务目录名称
 SERVER_DIR="spring-boot-plus-server-2.0"
 # 发布的GIT分支名称
-DEPLOY_BRANCH=dev
+DEPLOY_BRANCH=master
 # 发布的Maven Profile
 ACTIVE_PROFILE=test
 
